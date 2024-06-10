@@ -54,9 +54,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
         return 0;
       }
       if (sortCriteria === "price") {
-        return sortOrder === "asc"
-          ? a.price - b.price
-          : b.price - a.price;
+        return sortOrder === "asc" ? a.price - b.price : b.price - a.price;
       }
       return 0;
     });
@@ -79,6 +77,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
       <Box
         sx={{
           display: "flex",
+          flexDirection: { xs: "column", sm: "row" },
           justifyContent: "space-between",
           alignItems: "center",
           mb: 2,
@@ -89,7 +88,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
           variant="outlined"
           value={searchTerm}
           onChange={handleSearchChange}
-          sx={{ width: "500px", mt: 2 }}
+          sx={{ width: { xs: "100%", sm: "300px" }, mt: 2 }}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -100,7 +99,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
             ),
           }}
         />
-        <Box sx={{ display: "flex", gap: 2, mt: 2 }}>
+        <Box sx={{ display: "flex", gap: 2, mt: { xs: 2, sm: 0 } }}>
           <FormControl variant="outlined" sx={{ minWidth: 120 }}>
             <InputLabel>Sort By</InputLabel>
             <Select
@@ -136,7 +135,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
           currentItems.length > 0 ? (
             <Grid container spacing={2}>
               {currentItems.map((item) => (
-                <Grid item key={item.id} xs={12} sm={4} md={4} lg={4}>
+                <Grid item key={item.id} xs={12} sm={6} md={4} lg={3}>
                   <MenuItem
                     item={item}
                     setCurrentItem={setCurrentItem}
@@ -146,7 +145,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
               ))}
             </Grid>
           ) : (
-            <Grid item md={12} lg={12} xs={12}>
+            <Grid item xs={12}>
               <Typography
                 sx={{
                   textAlign: "center",
@@ -163,7 +162,7 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
         ) : (
           <Grid container spacing={2}>
             {currentItems.map((item) => (
-              <Grid item key={item.id} xs={12} sm={4} md={4} lg={4}>
+              <Grid item key={item.id} xs={12} sm={6} md={4} lg={4}>
                 <MenuItem
                   item={item}
                   setCurrentItem={setCurrentItem}
@@ -173,7 +172,6 @@ const MenuList = ({ menuItems, setCurrentItem, deleteMenuItem }) => {
             ))}
           </Grid>
         )}
-
         <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
           {totalPages > 0 && (
             <Pagination

@@ -23,6 +23,7 @@ const useMenuItems = () => {
       title: "Successfully Added",
       icon: "success",
       showConfirmButton: false,
+      timer: 1000,
     });
     push(menuItemsRef, item);
   };
@@ -34,6 +35,7 @@ const useMenuItems = () => {
       title: "Successfully Update",
       icon: "success",
       showConfirmButton: false,
+      timer: 1000,
     });
     update(menuItemRef, updatedItem);
   };
@@ -43,6 +45,7 @@ const useMenuItems = () => {
     Swal.fire({
       title: "Do you want delete this menu?",
       icon: "info",
+      timer: 1000,
       showConfirmButton: true,
       showCancelButton: true,
       customClass: {

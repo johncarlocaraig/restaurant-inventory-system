@@ -1,0 +1,25 @@
+.MuiInputBase-root input,
+.MuiInputBase-root label {
+  font-family: "poppins";
+}
+
+.confirm-button {
+  background-color: #4caf50 !important; /* Green */
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 10px 24px !important;
+  font-size: 16px !important;
+  margin-right: 10px;
+  font-family: "Poppins";
+}
+
+.cancel-button {
+  background-color: #f44336 !important; /* Red */
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 10px 24px !important;
+  font-size: 16px !important;
+  font-family: "Poppins";
+}/*# sourceMappingURL=style.css.map */
